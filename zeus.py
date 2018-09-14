@@ -239,8 +239,12 @@ check_platform()
 # set a working directory real quick - #organization
 cwd = raw_input("Enter name for working directory: ")
 # if the directory exists - who cares - let's keep working!!
-whatiwant = "mkdir " + cwd + " 2> /dev/null"
-os.system(whatiwant)
+if platform == "linux":
+    whatiwant = "mkdir " + cwd + " 2> /dev/null"
+    os.system(whatiwant)
+else:
+    whatiwant = "mkdir " + cwd + " 2> nul"
+    os.system(whatiwant)
 
 # main - ish..
 print("""
